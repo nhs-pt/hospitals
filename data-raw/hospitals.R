@@ -6,4 +6,5 @@ library(here)
 hospitals <- readODS::read_ods(path = here::here('data-raw/hospitals.ods')) %>%
   tibble::as_tibble()
 
-usethis::use_data(hospitals, overwrite = TRUE)
+usethis::use_data(hospitals, compress = "xz", overwrite = TRUE, version = 2)
+usethis::use_data(hospitals, internal = TRUE, compress = "xz", overwrite = TRUE, version = 2)
