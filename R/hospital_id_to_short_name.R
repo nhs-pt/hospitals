@@ -19,4 +19,3 @@ short_name_to_hospital_id <- function(short_name) {
     dplyr::pull('hospital_id')
 
 }
-D
