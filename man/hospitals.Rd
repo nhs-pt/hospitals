@@ -61,6 +61,9 @@ A data frame with 14 variables:
   \item{bh_group_colour}{Colour associated with the \code{bh_group}. These
   colours are assigned by this package and are provided as a convenience
   colour palette for plotting in R.}
+  \item{regex}{A regular expression that can be used to identify hospital
+  from their names, even when the names are not exactly as in
+  \code{full_name}.}
 }
 }
 \source{
@@ -148,6 +151,8 @@ PPP}}{Page 7 of \href{https://github.com/nhs-pt/hospitals/data-raw/source/Louren
 }
 
 \item{bh_group_colour}{Own work.}
+
+\item{regex}{Own work.}
 }
 }
 \usage{

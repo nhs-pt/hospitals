@@ -66,6 +66,9 @@
 #'   \item{bh_group_colour}{Colour associated with the \code{bh_group}. These
 #'   colours are assigned by this package and are provided as a convenience
 #'   colour palette for plotting in R.}
+#'   \item{regex}{A regular expression that can be used to identify hospital
+#'   from their names, even when the names are not exactly as in
+#'   \code{full_name}.}
 #' }
 #'
 #'
@@ -155,6 +158,8 @@
 #' }
 #'
 #' \item{bh_group_colour}{Own work.}
+#'
+#' \item{regex}{Own work.}
 #' }
 #'
 "hospitals"
