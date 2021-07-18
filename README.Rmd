@@ -18,22 +18,21 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 <!-- badges: end -->
 
-This R data package contains one single dataset --- the eponymous `hospitals` tibble --- comprising the set of hospitals in the Portuguese National Health Service.
+This R data package contains one single dataset --- the eponymous `hospitals` tibble --- comprising the up to date set of hospitals in the Portuguese National Health Service.
 
 ## Installation
 
-You can install the current version of *hospitals* with:
+You can install the current version of hospitals with:
 
 ``` r
 # install.packages("remotes")
 remotes::install_github("nhs-pt/hospitals")
 ```
 
-## The dataset
+## The `hospitals` dataset
 
 ```{r dataset}
 library(hospitals)
 
-# hospitals
+hospitals[1:6] %>% print(n = Inf)
 ```
-
