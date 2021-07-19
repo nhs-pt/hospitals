@@ -13,6 +13,9 @@ This R data package contains one single dataset — the eponymous
 `hospitals` tibble — comprising the up to date set of hospitals in the
 Portuguese National Health Service.
 
+For a description of each variable and data sources used to assemble
+this dataset browse the documentation with `?hospitals`
+
 ## Installation
 
 You can install the current version of hospitals with:
@@ -23,9 +26,6 @@ remotes::install_github("nhs-pt/hospitals")
 ```
 
 ## The `hospitals` dataset
-
-Browse the documentation with `?hospitals` for details about each
-variable and data sources.
 
 ``` r
 library(hospitals)
