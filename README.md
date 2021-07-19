@@ -14,7 +14,7 @@ This R data package contains one single dataset — the eponymous
 Portuguese National Health Service.
 
 For a description of each variable and data sources used to assemble
-this dataset browse the documentation with `?hospitals`
+this dataset browse the documentation with `?hospitals`.
 
 ## Installation
 
