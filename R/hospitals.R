@@ -10,7 +10,7 @@
 #' Unidades Locais de Saúde (ULS); the column \code{integration} indicates which
 #' case is which.
 #'
-#' @format A data frame with 14 variables:
+#' @format A data frame with 15 variables:
 #' \describe{
 #'   \item{hospital_id}{A surrogate identifier created by this R package to
 #'   identify unambiguously each hospital institution.}

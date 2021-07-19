@@ -35,6 +35,8 @@ remotes::install_github("nhs-pt/hospitals")
 
 ## The `hospitals` dataset
 
+The `hospital_id` variable is a surrogate identifier created by us that ought to help researchers refer to hospitals in an unambiguous way. The idea is for these identifiers to never change. So if an hospital disappears, or is merged with another one, we will create deprecate old identifiers and create new ones accordingly.
+
 ```{r dataset}
 library(hospitals)
 
@@ -73,12 +75,24 @@ the name:
 sanitise(c('Algarve', 'H Algarve', 'Hospital do Algarve'))
 ```
 
+Also `sanitise` should be lenient with typos associated with accented characters:
+
+```{r accented_chars}
+sanitise('Hospital de São João')
+
+# Without the tildes the mapping still works fine
+sanitise('Hospital de Sao Joao')
+```
+
 If you rather have the short version of the hospital names use the `form` argument:
 
 ```{r short_name}
 sanitise('Matosinhos', form = 'short_name')
+
+# 'full_name' is the default
 sanitise('Matosinhos', form = 'full_name')
 ```
+
 
 ### `hospital_name_to_hospital_id()`
 
