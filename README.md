@@ -30,8 +30,8 @@ remotes::install_github("nhs-pt/hospitals")
 The `hospital_id` variable is a surrogate identifier created by us that
 ought to help researchers refer to hospitals in an unambiguous way. The
 idea is for these identifiers to never change. So if an hospital
-disappears, or is merged with another one, we will create deprecate old
-identifiers and create new ones accordingly.
+disappears, or is merged with another one, we will deprecate old
+identifiers and create new, accordingly.
 
 ``` r
 library(hospitals)
