@@ -4,6 +4,9 @@
 # hospitals <img src='man/figures/logo.svg' align="right" height="139" />
 
 <!-- badges: start -->
+
+[![Lifecycle:
+experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
 This R data package contains one single dataset — the eponymous
@@ -20,6 +23,9 @@ remotes::install_github("nhs-pt/hospitals")
 ```
 
 ## The `hospitals` dataset
+
+Browse the documentation with `?hospitals` for details about each
+variable and data sources.
 
 ``` r
 library(hospitals)
@@ -80,4 +86,80 @@ hospitals[1:6] %>% print(n = Inf)
 #> 50 h050        ULSBA    EPE          ULS         I     ULS do Baixo Alentejo    
 #> 51 h051        HSP      IPSS-CA      H           <NA>  H de São Paulo, Serpa    
 #> 52 h052        CHUA     EPE          CH          II    CHU do Algarve
+```
+
+## Helper functions
+
+### `sanitise()`
+
+The names of the hospitals can have subtle variations. I provide a few
+functions that help map hospital names found elsewhere to the values in
+the columns `hospital_id` or `full_name`.
+
+For example, with `sanitise` you can convert hospital names found
+elsewhere to the names found in `hospitals$full_name`:
+
+``` r
+sanitise(c('Hospital do Alto Minho'))
+#> [1] "Unidade Local de Saúde do Alto Minho, EPE"
+```
+
+Also `sanitise` is aware of old hospital names, and can map to the new
+ones:
+
+``` r
+sanitise(c('Hospital do Alto Ave'))
+#> [1] "Hospital da Senhora da Oliveira, Guimarães, EPE"
+```
+
+The method behind `sanitise` for matching hospital names to their names
+in `full_name` is based on an heuristic that uses a minimal set of
+keywords to identify the hospital. So it is pretty tolerant to
+variations in the name as long as one of the critical keywords is found
+in the name, e.g., to identify the Hospital of Algarve as such only the
+keyword *Algarve* needs to be present in the name:
+
+``` r
+sanitise(c('Algarve', 'H Algarve', 'Hospital do Algarve'))
+#> [1] "Centro Hospitalar Universitário do Algarve, EPE"
+#> [2] "Centro Hospitalar Universitário do Algarve, EPE"
+#> [3] "Centro Hospitalar Universitário do Algarve, EPE"
+```
+
+If you rather have the short version of the hospital names use the
+`form` argument:
+
+``` r
+sanitise('Matosinhos', form = 'short_name')
+#> [1] "ULS de Matosinhos"
+sanitise('Matosinhos', form = 'full_name')
+#> [1] "Unidade Local de Saúde de Matosinhos, EPE"
+```
+
+### `hospital_name_to_hospital_id()`
+
+The function `hospital_name_to_hospital_id` uses the same heuristic as
+`sanitise` but returns the hospital identifier instead:
+
+``` r
+hospital_name_to_hospital_id(c('Matosinhos', 'Algarve'))
+#> Matosinhos    Algarve 
+#>     "h012"     "h052"
+```
+
+This can be useful if you need to map hospital names to some other
+variables in `hospitals`, as the `hospital_id` can be used as key in a
+join operation. For example, to get the legal status of the Hospital of
+Guarda and Hospital São José in Fafe you can do:
+
+``` r
+hospital_name_to_hospital_id(c('Guarda', 'São José')) %>%
+  tibble::tibble(hospital_id = .) %>%
+  dplyr::left_join(hospitals, by = 'hospital_id') %>%
+  dplyr::select(c('hospital_id', 'legal_status'))
+#> # A tibble: 2 x 2
+#>   hospital_id legal_status
+#>   <chr>       <chr>       
+#> 1 h021        EPE         
+#> 2 h019        IPSS-CA
 ```
