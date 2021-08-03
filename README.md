@@ -163,8 +163,7 @@ The function `hospital_name_to_hospital_id` uses the same heuristic as
 
 ``` r
 hospital_name_to_hospital_id(c('Matosinhos', 'Algarve'))
-#> Matosinhos    Algarve 
-#>    "h0012"    "h0052"
+#> [1] "h0012" "h0052"
 ```
 
 This can be useful if you need to map hospital names to some other
