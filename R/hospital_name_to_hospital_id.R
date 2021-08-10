@@ -39,8 +39,8 @@ match_hname_to_hid <- function(hospital_name) {
 
   # print(levels(hn_fac))
 
-  pattern <- stringr::regex(hospitals:::whole(hospitals::hospitals$regex), ignore_case = TRUE)
-  replacement <- hospitals::hospitals$hospital_id
+  pattern <- stringr::regex(whole(hospitals$regex), ignore_case = TRUE)
+  replacement <- hospitals$hospital_id
 
   levels(hn_fac) <- purrr::map_chr(levels(hn_fac), recode, pattern = pattern, replacement = replacement)
   return(as.character(hn_fac))
