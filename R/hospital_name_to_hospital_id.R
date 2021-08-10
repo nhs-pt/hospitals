@@ -33,7 +33,8 @@ recode <- function(string, pattern, replacement) {
   rep <- replacement[which(lgl)[1]]
 }
 
-match_hname_to_hid <- function(hospital_name) {
+#' @export
+hospital_name_to_hospital_id <- function(hospital_name) {
 
   hn_fac <- factor(hospital_name)
 
@@ -46,5 +47,4 @@ match_hname_to_hid <- function(hospital_name) {
   return(as.character(hn_fac))
 }
 
-#' @export
-hospital_name_to_hospital_id <- match_hname_to_hid
+
