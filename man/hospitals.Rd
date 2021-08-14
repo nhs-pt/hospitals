@@ -5,65 +5,66 @@
 \alias{hospitals}
 \title{Portuguese NHS hospitals}
 \format{
-A data frame with 15 variables:
+A data frame with 16 variables:
 \describe{
-  \item{hospital_id}{A surrogate identifier created by this R package to
-  identify unambiguously each hospital institution.}
-  \item{acronym}{The acronym or initialism of the hospital name.}
-  \item{legal_status}{Legal entity status: either an administrative public
-  sector (SPA) entity, a corporate public entity (EPE) or a public-private
-  partnership (PPP) entity. The legal status of SPA and EPE entities can be
-  found in
-  \href{https://data.dre.pt/eli/dec-lei/18/2017/02/10/p/dre/pt/html}{Decree-law
-  18/2017}. For information about the legal status of the PPP entities see
-  \href{https://data.dre.pt/eli/dec-lei/23/2020/05/22/p/dre}{Decree-law
-  23/2020}. The Portuguese government may also establish contracts with
-  hospitals owned by social enterprises, namely Private Institutions of
-  Social Solidarity (IPSS). In this case, these hospitals become effectively
-  part of the National Health Service. There are three types of contracts
-  that can be established with IPSS which are regulated by the
-  \href{https://data.dre.pt/eli/dec-lei/138/2013/10/09/p/dre/pt/html}{Decree-law
-  138/2013}: Management Agreement (IPSS-MA), Cooperative Agreement (IPSS-CA)
-  and Convention (IPSS-CN).}
-  \item{integration}{The integration level of the hospital institution: a
-  single hospital unit (\code{'H'}); \emph{Centro Hospitalar} (\code{'CH'}),
-  comprising two or more individual Hospital units (a case of
-  \href{https://en.wikipedia.org/wiki/Horizontal_integration}{horizontal
-  integration}); and \emph{Unidade Local de Saúde}, comprising both Hospital
-  entities and primary care health centres (a case of
-  \href{https://en.wikipedia.org/wiki/Vertical_integration}{vertical
-  integration}).}
-  \item{group}{One of the groups defined by
-  \href{https://data.dre.pt/eli/port/82/2014/04/10/p/dre/pt/html}{Ordinance
-  82/2014}: I, II, III, IV-a, IV-b or IV-c. This classification is based on
-  the hospital catchment area and the scope of medical specialities provided.
-  Broadly speaking, group I includes local hospitals, group II corresponds to
-  regional hospitals, and group III to central hospitals. Group IV
-  corresponds to specialised hospitals: IV-a, oncology institutes; IV-b,
-  physical medicine and rehabilitation hospitals; and IV-c, psychiatry and
-  mental health hospitals.}
-  \item{short_name}{An abbreviated version of the hospital name.}
-  \item{full_name}{The name of the hospital.}
-  \item{region}{TODO}
-  \item{vatin}{VAT identification number (VATIN). In Portuguese, \emph{Número
-  de Identificação de Pessoa Colectiva} (NIPC).}
-  \item{latitude}{Latitude of the location of the hospital entity expressed
-  in decimal degrees.}
-  \item{longitude}{Longitude of the location of the hospital entity expressed
-  in decimal degrees.}
-  \item{region_colour}{Colour associated with the \code{region}. These
-  colours are assigned by this package and are provided as a convenience
-  colour palette for plotting in R.}
-  \item{bh_group}{One of the groups defined by the project Benchmarking of
-  Hospitals. Source:
-  \href{https://benchmarking-acss.min-saude.pt/BH_Enquadramento/GrupoInstituicoes}{BH | Grupos
-  e Instituições}.}
-  \item{bh_group_colour}{Colour associated with the \code{bh_group}. These
-  colours are assigned by this package and are provided as a convenience
-  colour palette for plotting in R.}
-  \item{regex}{A regular expression that can be used to identify hospital
-  from their names, even when the names are not exactly as in
-  \code{full_name}.}
+\item{\code{hospital_id}}{A surrogate identifier created by this R package to
+identify unambiguously each hospital institution.}
+\item{\code{hospital_acronym}}{The acronym or initialism of the hospital name.}
+\item{\code{hospital_legal_status}}{Legal entity status: either an administrative public
+sector (SPA) entity, a corporate public entity (EPE) or a public-private
+partnership (PPP) entity. The legal status of SPA and EPE entities can be
+found in
+\href{https://data.dre.pt/eli/dec-lei/18/2017/02/10/p/dre/pt/html}{Decree-law
+18/2017}. For information about the legal status of the PPP entities see
+\href{https://data.dre.pt/eli/dec-lei/23/2020/05/22/p/dre}{Decree-law
+23/2020}. The Portuguese government may also establish contracts with
+hospitals owned by social enterprises, namely Private Institutions of
+Social Solidarity (IPSS). In this case, these hospitals become effectively
+part of the National Health Service. There are three types of contracts
+that can be established with IPSS which are regulated by the
+\href{https://data.dre.pt/eli/dec-lei/138/2013/10/09/p/dre/pt/html}{Decree-law
+138/2013}: Management Agreement (IPSS-MA), Cooperative Agreement (IPSS-CA)
+and Convention (IPSS-CN).}
+\item{\code{hospital_integration}}{The integration level of the hospital
+institution: a single hospital unit (\code{'H'}); \emph{Centro Hospitalar}
+(\code{'CH'}), comprising two or more individual Hospital units (a case of
+\href{https://en.wikipedia.org/wiki/Horizontal_integration}{horizontal
+integration}); and \emph{Unidade Local de Saúde} (\code{'ULS'}), comprising
+both Hospital entities and primary care health centres (a case of
+\href{https://en.wikipedia.org/wiki/Vertical_integration}{vertical
+integration}).}
+\item{\code{hospital_group}}{One of the groups defined by
+\href{https://data.dre.pt/eli/port/82/2014/04/10/p/dre/pt/html}{Ordinance
+82/2014}: I, II, III, IV-a, IV-b or IV-c. This classification is based on
+the hospital catchment area and the scope of medical specialities provided.
+Broadly speaking, group I includes local hospitals, group II corresponds to
+regional hospitals, and group III to central hospitals. Group IV
+corresponds to specialised hospitals: IV-a, oncology institutes; IV-b,
+physical medicine and rehabilitation hospitals; and IV-c, psychiatry and
+mental health hospitals.}
+\item{\code{hospital_short_name}}{An abbreviated version of the hospital name.}
+\item{\code{hospital_full_name}}{The name of the hospital.}
+\item{\code{hospital_region_full_name}}{The name of the Portuguese health region.}
+\item{\code{hospital_region_short_name}}{A shortened version of \code{hospital_region_full_name}.}
+\item{\code{hospital_vatin}}{VAT identification number (VATIN). In Portuguese, \emph{Número
+de Identificação de Pessoa Colectiva} (NIPC).}
+\item{\code{hospital_latitude}}{Latitude of the location of the hospital entity expressed
+in decimal degrees.}
+\item{\code{hospital_longitude}}{Longitude of the location of the hospital entity expressed
+in decimal degrees.}
+\item{\code{hospital_region_colour}}{Colour associated with the \code{region}. These
+colours are assigned by this package and are provided as a convenience
+colour palette for plotting in R.}
+\item{\code{hospital_bh_group}}{One of the groups defined by the project Benchmarking of
+Hospitals. Source:
+\href{https://benchmarking-acss.min-saude.pt/BH_Enquadramento/GrupoInstituicoes}{BH | Grupos
+e Instituições}.}
+\item{\code{hospital_bh_group_colour}}{Colour associated with the \code{bh_group}. These
+colours are assigned by this package and are provided as a convenience
+colour palette for plotting in R.}
+\item{\code{hospital_regex}}{A regular expression that can be used to identify hospitals
+from their names, even when the names are not exactly as in
+\code{hospital_full_name}.}
 }
 }
 \source{
@@ -78,24 +79,25 @@ Administrativo}, \emph{Hospitais em parceria público-privada (PPP)} and
 Here are the sources per variable (column) in the dataset:
 
 \describe{
-  \item{hospital_id}{Own work.}
-  \item{acronym}{Own work.}
-  \item{legal_status}{Obtained from
-  \url{https://www.sns.gov.pt/institucional/entidades-de-saude/} as the
-  hospitals were grouped according to its legal status. In the case of the partnerships with IPSS, the information on the precise type of contract was obtained from inspection of the contracts themselves. In all cases they are Cooperative Agreements (IPSS-CA):
-  \describe{
-  \item{Hospital Luciano de Castro, Anadia}{\href{https://github.com/nhs-pt/hospitals/data-raw/source/Acordo_Cooperacao_Hospital_Jose_Luciano_Castro_-Anadia1.pdf}{data-raw/source/Acordo_Cooperacao_Hospital_Jose_Luciano_Castro_-Anadia1.pdf}}
-  \item{Hospital São José, Fafe}{\href{https://github.com/nhs-pt/hospitals/data-raw/source/Acordo_Coop_Hosp_Sao_Jose_Fafe.pdf}{data-raw/source/Acordo_Coop_Hosp_Sao_Jose_Fafe.pdf}}
-  \item{Hospital de São Paulo, Serpa}{\href{https://github.com/nhs-pt/hospitals/data-raw/source/Acordo_Cooperacao_-Hospital_Sao_Paulo_Serpa.pdf}{data-raw/source/Acordo_Cooperacao_-Hospital_Sao_Paulo_Serpa.pdf}}
-  }
+\item{\code{hospital_id}}{Own work.}
+\item{\code{hospital_acronym}}{Own work.}
+\item{\code{hospital_legal_status}}{Obtained from
+\url{https://www.sns.gov.pt/institucional/entidades-de-saude/} as the
+hospitals were grouped according to its legal status. In the case of the partnerships with IPSS, the information on the precise type of contract was obtained from inspection of the contracts themselves. In all cases they are Cooperative Agreements (IPSS-CA):
+\describe{
+\item{Hospital Luciano de Castro, Anadia}{\href{https://github.com/nhs-pt/hospitals/data-raw/source/Acordo_Cooperacao_Hospital_Jose_Luciano_Castro_-Anadia1.pdf}{data-raw/source/Acordo_Cooperacao_Hospital_Jose_Luciano_Castro_-Anadia1.pdf}}
+\item{Hospital São José, Fafe}{\href{https://github.com/nhs-pt/hospitals/data-raw/source/Acordo_Coop_Hosp_Sao_Jose_Fafe.pdf}{data-raw/source/Acordo_Coop_Hosp_Sao_Jose_Fafe.pdf}}
+\item{Hospital de São Paulo, Serpa}{\href{https://github.com/nhs-pt/hospitals/data-raw/source/Acordo_Cooperacao_-Hospital_Sao_Paulo_Serpa.pdf}{data-raw/source/Acordo_Cooperacao_-Hospital_Sao_Paulo_Serpa.pdf}}
 }
-\item{integration}{The classification in Hospital unit, Hospital Centre or
-Unidade Local de Saúde (ULS) could be easily inferred from the name of the
-hospitals. Hospital Centres always start with \emph{Centro Hospitalar}, and
-ULS hospitals always start with \emph{Unidade Local de Saúde}. The remaining
-hospitals are therefore single Hospital (H) units.}
+}
+\item{\code{hospital_integration}}{The classification in Hospital unit (H), Hospital
+Centre (CH) or Unidade Local de Saúde (ULS) could be easily inferred from the
+name of the hospitals. Hospital Centres always start with \emph{Centro
+Hospitalar} (CH), and ULS hospitals always start with \emph{Unidade Local de
+Saúde} (ULS). The remaining hospitals are therefore single Hospital (H)
+units.}
 
-\item{group}{
+\item{\code{hospital_group}}{
 
 \describe{
 
@@ -125,34 +127,35 @@ see Table 15 in the Appendix 1, page 71 of
 }
 }
 
-\item{short_name}{Own work.}
+\item{\code{hospital_short_name}}{Own work.}
 
-\item{full_name}{Obtained from \url{https://www.sns.gov.pt/institucional/entidades-de-saude/}.}
+\item{\code{hospital_full_name}}{Obtained from \url{https://www.sns.gov.pt/institucional/entidades-de-saude/}.}
 
-\item{region}{TODO}
+\item{\code{hospital_region_full_name}}{Obtained from \href{https://dre.pt/legislacao-consolidada/-/lc/73609575/202009301829/diploma}{Decree-law 11/93}.}
+\item{\code{hospital_region_short_name}}{Own work.}
 
-\item{vatin}{From the search engine \url{https://codigopostal.ciberforma.pt/}
+\item{\code{hospital_vatin}}{From the search engine \url{https://codigopostal.ciberforma.pt/}
 and from
 \href{https://github.com/nhs-pt/hospitals/data-raw/source/Infarmed_lista_hospitais.pdf}{data-raw/source/Infarmed_lista_hospitais.pdf}.}
 
-\item{latitude and longitude}{By searching each hospital in Google Maps and retrieving its coordinates.}
+\item{\code{hospital_latitude} and \code{hospital_longitude}}{By searching each hospital in Google Maps and retrieving its coordinates.}
 
-\item{region_colour}{Own work.}
+\item{\code{hospital_region_colour}}{Own work.}
 
-\item{bh_group}{
+\item{\code{hospital_bh_group}}{
 The ACSS groups defined in the project \href{https://benchmarking-acss.min-saude.pt/}{Hospitals' Benchmarking} were collected from these sources:
 \describe{
 \item{ACSS Hospitals' Benchmarking website}{\href{https://benchmarking-acss.min-saude.pt/BH_Enquadramento/GrupoInstituicoes}{ACSS BH | Grupos
-  e Instituições}}
+e Instituições}}
 \item{\emph{Relatório de Benchmarking | hospitais EPE e
 PPP}}{Page 7 of \href{https://github.com/nhs-pt/hospitals/data-raw/source/Lourenco.TechReport.2013.pdf}{data-raw/source/Lourenco.TechReport.2013.pdf}}
 \item{\emph{Termos de Referência para contratualização de cuidados desaúde no SNS para 2021}}{Page 25 of \href{https://github.com/nhs-pt/hospitals/data-raw/source/ACSS.TechReport.2020.pdf}{data-raw/source/ACSS.TechReport.2020.pdf}}
 }
 }
 
-\item{bh_group_colour}{Own work.}
+\item{\code{hospital_bh_group_colour}}{Own work.}
 
-\item{regex}{Own work.}
+\item{\code{hospital_regex}}{Own work.}
 }
 }
 \usage{
@@ -162,12 +165,15 @@ hospitals
 A dataset of the Portuguese National Health Service hospitals.
 }
 \details{
-The concept of \emph{hospital} here
-adopted is that of a legal entity providing hospital services. Depending on
-the organisational structure of the entity, it may be a single hospital unit
-(H), several hospital units that have been merged into one Hospital Centre
-(CH), or a merge of hospital units and health centres into the so called
-Unidades Locais de Saúde (ULS); the column \code{integration} indicates which
-case is which.
+The concept of \emph{hospital} here adopted is that of a legal entity
+providing hospital services. Depending on the organisational structure of the
+entity, it may be a single hospital unit (H), several hospital units that
+have been merged into one Hospital Centre (CH), or a merge of hospital units
+and health centres into the so called \emph{Unidades Locais de Saúde (ULS)};
+the column \code{hospital_integration} indicates which case is which.
+}
+\examples{
+hospitals
+
 }
 \keyword{datasets}

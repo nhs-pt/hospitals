@@ -11,6 +11,7 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+library(hospitals)
 ```
 
 # hospitals <img src='man/figures/logo.svg' align="right" height="139" />
@@ -19,10 +20,12 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-This R data package contains one single dataset --- the eponymous `hospitals` tibble --- comprising the up to date set of hospitals in the Portuguese National Health Service.
+This R data package contains one single dataset --- the eponymous `hospitals`
+tibble --- comprising the current `r nrow(hospitals)` hospitals in the
+Portuguese National Health Service.
 
-For a description of each variable and data sources used to assemble this dataset
-browse the documentation with `?hospitals`.
+For a description of each variable and data sources used to assemble this
+dataset browse the documentation with `?hospitals`.
 
 ## Installation
 
@@ -35,78 +38,90 @@ remotes::install_github("nhs-pt/hospitals")
 
 ## The `hospitals` dataset
 
-The `hospital_id` variable is a surrogate identifier created by us that ought to help researchers refer to hospitals in an unambiguous way. The idea is for these identifiers to never change. So if an hospital disappears, or is merged with another one, we will deprecate old identifiers and create new, accordingly.
+The `hospital_id` variable is a surrogate identifier created by us that ought to
+help researchers refer to hospitals in an unambiguous way. The idea is for these
+identifiers to never change. So if an hospital disappears, or is merged with
+another one, we will deprecate old identifiers and create new, accordingly.
 
 ```{r dataset}
 library(hospitals)
 
+# Here are the first 6 columns
 hospitals[1:6] %>% print(n = Inf)
 ```
 
 ## Helper functions
 
-### `sanitise()`
+### `normalise()`
 
-The names of the hospitals can have subtle variations. I provide a few functions
-that help map hospital names found elsewhere to the values in the columns
-`hospital_id` or `full_name`.
+The names of hospitals found in the wild can have subtle variations.
+The `normalise()` function matches hospital names found elsewhere to the
+hospitals included in the dataset `hospitals`.
 
-For example, with `sanitise` you can convert hospital names found elsewhere to
-the names found in `hospitals$full_name`:
+For example, with `normalise` you can convert hospital names found elsewhere to
+the names found in `hospitals$hospital_short_name`:
 
 ```{r map_wild_names}
-sanitise(c('Hospital do Alto Minho'))
+normalise(c('Hospital do Alto Minho'))
 ```
 
-Also `sanitise` is aware of old hospital names, and can map to the new ones:
+Also `normalise` is aware of old hospital names, and can map to the new ones:
 
 ```{r map_old_names}
-sanitise(c('Hospital do Alto Ave'))
+normalise(c('Hospital do Alto Ave'))
 ```
 
-The method behind `sanitise` for matching hospital names to their names in
-`full_name` is based on an heuristic that uses a minimal set of keywords to
-identify the hospital. So it is pretty tolerant to variations in the name as
-long as one of the critical keywords is found in the name, e.g., to identify the
-Hospital of Algarve as such only the keyword *Algarve* needs to be present in
-the name:
+The method behind `normalise` for matching hospital names to their names in
+`hospital_short_name` is based on an heuristic that uses a minimal set of
+keywords to identify the hospital. So it is pretty tolerant to variations in the
+name as long as one of the critical keywords is found in the name, e.g., to
+identify the Hospital of Algarve as such only the keyword *Algarve* needs to be
+present in the name:
 
 ```{r keywords}
-sanitise(c('Algarve', 'H Algarve', 'Hospital do Algarve'))
+normalise(c('Algarve', 'H Algarve', 'Hospital do Algarve'))
 ```
 
-Also `sanitise` should be lenient with typos associated with accented characters:
+Also `normalise` should be lenient with typos associated with accented characters:
 
 ```{r accented_chars}
-sanitise('Hospital de São João')
+normalise('Hospital de São João')
 
 # Without the tildes the mapping still works fine
-sanitise('Hospital de Sao Joao')
+normalise('Hospital de Sao Joao')
 ```
 
-If you rather have the short version of the hospital names use the `form` argument:
+Instead of the `hospital_short_name` you may ask for the `hospital_full_name` or the `hospital_id`:
 
 ```{r short_name}
-sanitise('Matosinhos', form = 'short_name')
 
-# 'full_name' is the default
-sanitise('Matosinhos', form = 'full_name')
+# 'hospital_short_name' is the default 
+normalise('Matosinhos', return = 'hospital_short_name')
+
+normalise('Matosinhos', return = 'hospital_full_name')
+
+normalise('Matosinhos', return = 'hospital_id')
 ```
 
+### `get_hospital_attribute()`
 
-### `hospital_name_to_hospital_id()`
+`get_hospital_attribute()` is a thin wrapper function allowing you to easily
+retrieve hospital attributes from the dataset `hospitals`. You specify the
+hospitals by indicating what type of key you are providing: `"hospital_id"`,
+`"hospital_acronym"`, `"hospital_short_name"` or `"hospital_full_name"`. And
+specify the column variable in `hospitals` with the `value` argument (default is
+`"hospital_short_name"`).
 
-The function `hospital_name_to_hospital_id` uses the same heuristic as `sanitise` but returns the hospital identifier instead:
+```{r}
+# By default you get the hospital short name
+get_hospital_attribute('h0001')
 
-```{r hospital_name_to_hospital_id}
-hospital_name_to_hospital_id(c('Matosinhos', 'Algarve'))
-```
+# Same as above
+get_hospital_attribute('h0001', value = 'hospital_short_name')
 
-This can be useful if you need to map hospital names to some other variables in `hospitals`, as the `hospital_id` can be used as key in a join operation. For example, to get the legal status of the Hospital of Guarda and Hospital São José in Fafe you can do:
+# Or get instead the full name
+get_hospital_attribute('h0001', value = 'hospital_full_name')
 
-```{r hospital_name_to_hospital_id2}
-hospital_name_to_hospital_id(c('Guarda', 'São José')) %>%
-  tibble::tibble(hospital_id = .) %>%
-  dplyr::left_join(hospitals, by = 'hospital_id') %>%
-  dplyr::select(c('hospital_id', 'legal_status'))
+# Map the hospital short name to its full name
+get_hospital_attribute('IPO de Lisboa', key = 'hospital_short_name', value = 'hospital_full_name')
 ```

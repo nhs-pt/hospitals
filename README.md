@@ -10,7 +10,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 <!-- badges: end -->
 
 This R data package contains one single dataset — the eponymous
-`hospitals` tibble — comprising the up to date set of hospitals in the
+`hospitals` tibble — comprising the current 52 hospitals in the
 Portuguese National Health Service.
 
 For a description of each variable and data sources used to assemble
@@ -36,149 +36,152 @@ identifiers and create new, accordingly.
 ``` r
 library(hospitals)
 
+# Here are the first 6 columns
 hospitals[1:6] %>% print(n = Inf)
 #> # A tibble: 52 x 6
-#>    hospital_id acronym  legal_status integration group short_name               
-#>    <chr>       <chr>    <chr>        <chr>       <chr> <chr>                    
-#>  1 h0001       ULSNE    EPE          ULS         I     ULS de Saúde do Nordeste 
-#>  2 h0002       ULSAM    EPE          ULS         I     ULS do Alto Minho        
-#>  3 h0003       HB       EPE          H           II    H de Braga               
-#>  4 h0004       HSMM     EPE          H           I     H Santa Maria Maior      
-#>  5 h0005       HSOG     EPE          H           I     H da Senhora da Oliveira 
-#>  6 h0006       CHPVVC   EPE          CH          I     CH Póvoa de Varzim/Vila …
-#>  7 h0007       CHMA     EPE          CH          I     CH do Médio Ave          
-#>  8 h0008       CHTMAD   EPE          CH          II    CH Trás-os-Montes e Alto…
-#>  9 h0009       CHTS     EPE          CH          I     CH Tâmega e Sousa        
-#> 10 h0010       CHSJ     EPE          CH          III   CHU de São João          
-#> 11 h0011       IPOP     EPE          H           IV-a  IPO do Porto             
-#> 12 h0012       ULSM     EPE          ULS         I     ULS de Matosinhos        
-#> 13 h0013       CHUP     EPE          CH          III   CHU do Porto             
-#> 14 h0014       CHVNG/E  EPE          CH          II    CH Vila Nova de Gaia/Esp…
-#> 15 h0015       CHEDV    EPE          CH          I     CH de Entre o Douro e Vo…
-#> 16 h0016       HML      EPE          H           IV-c  H de Magalhães Lemos     
-#> 17 h0017       HFZ      SPA          H           I     H Dr. Francisco Zagalo   
-#> 18 h0018       HLC      IPSS-CA      H           I     H Luciano de Castro, Ana…
-#> 19 h0019       HSJ      IPSS-CA      H           <NA>  H São José, Fafe         
-#> 20 h0020       CHBV     EPE          CH          I     CH do Baixo Vouga        
-#> 21 h0021       ULSG     EPE          ULS         I     ULS da Guarda            
-#> 22 h0022       CHTV     EPE          CH          II    CH Tondela-Viseu         
-#> 23 h0023       CHUCB    EPE          CH          I     CHU Cova da Beira        
-#> 24 h0024       CHUC     EPE          CH          III   CHU de Coimbra           
-#> 25 h0025       IPOC     EPE          H           IV-a  IPO de Coimbra           
-#> 26 h0026       HDFF     EPE          H           I     HD da Figueira da Foz    
-#> 27 h0027       ULSCB    EPE          ULS         I     ULS de Castelo Branco    
-#> 28 h0028       CHL      EPE          CH          I     CH de Leiria             
-#> 29 h0029       CMRRC-RP SPA          H           IV-b  CM de Reabilitação da RC…
-#> 30 h0030       HAJC     SPA          H           I     H de Cantanhede          
-#> 31 h0031       CHMT     EPE          CH          I     CH Médio Tejo            
-#> 32 h0032       CHO      EPE          CH          I     CH do Oeste              
-#> 33 h0033       HDS      EPE          H           I     HD de Santarém           
-#> 34 h0034       HVFX     EPE          H           I     H de Vila Franca de Xira 
-#> 35 h0035       HL       PPP          H           I     H de Loures              
-#> 36 h0036       CHLN     EPE          CH          III   CHU Lisboa Norte         
-#> 37 h0037       HFF      EPE          H           I     H Prof Doutor Fernando F…
-#> 38 h0038       IPOL     EPE          H           IV-a  IPO de Lisboa            
-#> 39 h0039       HC       PPP          H           I     H de Cascais             
-#> 40 h0040       CHULC    EPE          CH          III   CHU de Lisboa Central    
-#> 41 h0041       CHLO     EPE          CH          II    CH de Lisboa Ocidental   
-#> 42 h0042       HGO      EPE          H           II    H Garcia de Orta         
-#> 43 h0043       CHBM     EPE          CH          I     CH Barreiro/Montijo      
-#> 44 h0044       CHS      EPE          CH          I     CH de Setúbal            
-#> 45 h0045       CHPL     SPA          CH          IV-c  CH Psiquiátrico de Lisboa
-#> 46 h0046       IOGP     SPA          H           IV    I de Oftalmologia Dr. Ga…
-#> 47 h0047       ULSNA    EPE          ULS         I     ULS do Norte Alentejano  
-#> 48 h0048       HESE     EPE          H           II    H Espírito Santo de Évora
-#> 49 h0049       ULSLA    EPE          ULS         I     ULS do Litoral Alentejano
-#> 50 h0050       ULSBA    EPE          ULS         I     ULS do Baixo Alentejo    
-#> 51 h0051       HSP      IPSS-CA      H           <NA>  H de São Paulo, Serpa    
-#> 52 h0052       CHUA     EPE          CH          II    CHU do Algarve
+#>    hospital_id hospital_acronym hospital_legal_… hospital_integr… hospital_group
+#>    <chr>       <chr>            <chr>            <chr>            <chr>         
+#>  1 h0001       ULSNE            EPE              ULS              I             
+#>  2 h0002       ULSAM            EPE              ULS              I             
+#>  3 h0003       HB               EPE              H                II            
+#>  4 h0004       HSMM             EPE              H                I             
+#>  5 h0005       HSOG             EPE              H                I             
+#>  6 h0006       CHPVVC           EPE              CH               I             
+#>  7 h0007       CHMA             EPE              CH               I             
+#>  8 h0008       CHTMAD           EPE              CH               II            
+#>  9 h0009       CHTS             EPE              CH               I             
+#> 10 h0010       CHSJ             EPE              CH               III           
+#> 11 h0011       IPOP             EPE              H                IV-a          
+#> 12 h0012       ULSM             EPE              ULS              I             
+#> 13 h0013       CHUP             EPE              CH               III           
+#> 14 h0014       CHVNG/E          EPE              CH               II            
+#> 15 h0015       CHEDV            EPE              CH               I             
+#> 16 h0016       HML              EPE              H                IV-c          
+#> 17 h0017       HFZ              SPA              H                I             
+#> 18 h0018       HLC              IPSS-CA          H                I             
+#> 19 h0019       HSJ              IPSS-CA          H                <NA>          
+#> 20 h0020       CHBV             EPE              CH               I             
+#> 21 h0021       ULSG             EPE              ULS              I             
+#> 22 h0022       CHTV             EPE              CH               II            
+#> 23 h0023       CHUCB            EPE              CH               I             
+#> 24 h0024       CHUC             EPE              CH               III           
+#> 25 h0025       IPOC             EPE              H                IV-a          
+#> 26 h0026       HDFF             EPE              H                I             
+#> 27 h0027       ULSCB            EPE              ULS              I             
+#> 28 h0028       CHL              EPE              CH               I             
+#> 29 h0029       CMRRC-RP         SPA              H                IV-b          
+#> 30 h0030       HAJC             SPA              H                I             
+#> 31 h0031       CHMT             EPE              CH               I             
+#> 32 h0032       CHO              EPE              CH               I             
+#> 33 h0033       HDS              EPE              H                I             
+#> 34 h0034       HVFX             EPE              H                I             
+#> 35 h0035       HL               PPP              H                I             
+#> 36 h0036       CHLN             EPE              CH               III           
+#> 37 h0037       HFF              EPE              H                I             
+#> 38 h0038       IPOL             EPE              H                IV-a          
+#> 39 h0039       HC               PPP              H                I             
+#> 40 h0040       CHULC            EPE              CH               III           
+#> 41 h0041       CHLO             EPE              CH               II            
+#> 42 h0042       HGO              EPE              H                II            
+#> 43 h0043       CHBM             EPE              CH               I             
+#> 44 h0044       CHS              EPE              CH               I             
+#> 45 h0045       CHPL             SPA              CH               IV-c          
+#> 46 h0046       IOGP             SPA              H                IV            
+#> 47 h0047       ULSNA            EPE              ULS              I             
+#> 48 h0048       HESE             EPE              H                II            
+#> 49 h0049       ULSLA            EPE              ULS              I             
+#> 50 h0050       ULSBA            EPE              ULS              I             
+#> 51 h0051       HSP              IPSS-CA          H                <NA>          
+#> 52 h0052       CHUA             EPE              CH               II            
+#> # … with 1 more variable: hospital_short_name <chr>
 ```
 
 ## Helper functions
 
-### `sanitise()`
+### `normalise()`
 
-The names of the hospitals can have subtle variations. I provide a few
-functions that help map hospital names found elsewhere to the values in
-the columns `hospital_id` or `full_name`.
+The names of hospitals found in the wild can have subtle variations. The
+`normalise()` function matches hospital names found elsewhere to the
+hospitals included in the dataset `hospitals`.
 
-For example, with `sanitise` you can convert hospital names found
-elsewhere to the names found in `hospitals$full_name`:
+For example, with `normalise` you can convert hospital names found
+elsewhere to the names found in `hospitals$hospital_short_name`:
 
 ``` r
-sanitise(c('Hospital do Alto Minho'))
-#> [1] "Unidade Local de Saúde do Alto Minho, EPE"
+normalise(c('Hospital do Alto Minho'))
+#> [1] "ULS do Alto Minho"
 ```
 
-Also `sanitise` is aware of old hospital names, and can map to the new
+Also `normalise` is aware of old hospital names, and can map to the new
 ones:
 
 ``` r
-sanitise(c('Hospital do Alto Ave'))
-#> [1] "Hospital da Senhora da Oliveira, Guimarães, EPE"
+normalise(c('Hospital do Alto Ave'))
+#> [1] "H da Senhora da Oliveira"
 ```
 
-The method behind `sanitise` for matching hospital names to their names
-in `full_name` is based on an heuristic that uses a minimal set of
-keywords to identify the hospital. So it is pretty tolerant to
+The method behind `normalise` for matching hospital names to their names
+in `hospital_short_name` is based on an heuristic that uses a minimal
+set of keywords to identify the hospital. So it is pretty tolerant to
 variations in the name as long as one of the critical keywords is found
 in the name, e.g., to identify the Hospital of Algarve as such only the
 keyword *Algarve* needs to be present in the name:
 
 ``` r
-sanitise(c('Algarve', 'H Algarve', 'Hospital do Algarve'))
-#> [1] "Centro Hospitalar Universitário do Algarve, EPE"
-#> [2] "Centro Hospitalar Universitário do Algarve, EPE"
-#> [3] "Centro Hospitalar Universitário do Algarve, EPE"
+normalise(c('Algarve', 'H Algarve', 'Hospital do Algarve'))
+#> [1] "CHU do Algarve" "CHU do Algarve" "CHU do Algarve"
 ```
 
-Also `sanitise` should be lenient with typos associated with accented
+Also `normalise` should be lenient with typos associated with accented
 characters:
 
 ``` r
-sanitise('Hospital de São João')
-#> [1] "Centro Hospitalar Universitário de São João, EPE"
+normalise('Hospital de São João')
+#> [1] "CHU de São João"
 
 # Without the tildes the mapping still works fine
-sanitise('Hospital de Sao Joao')
-#> [1] "Centro Hospitalar Universitário de São João, EPE"
+normalise('Hospital de Sao Joao')
+#> [1] "CHU de São João"
 ```
 
-If you rather have the short version of the hospital names use the
-`form` argument:
+Instead of the `hospital_short_name` you may ask for the
+`hospital_full_name` or the `hospital_id`:
 
 ``` r
-sanitise('Matosinhos', form = 'short_name')
+# 'hospital_short_name' is the default 
+normalise('Matosinhos', return = 'hospital_short_name')
 #> [1] "ULS de Matosinhos"
 
-# 'full_name' is the default
-sanitise('Matosinhos', form = 'full_name')
+normalise('Matosinhos', return = 'hospital_full_name')
 #> [1] "Unidade Local de Saúde de Matosinhos, EPE"
+
+normalise('Matosinhos', return = 'hospital_id')
+#> [1] "h0012"
 ```
 
-### `hospital_name_to_hospital_id()`
+### `get_hospital_attribute()`
 
-The function `hospital_name_to_hospital_id` uses the same heuristic as
-`sanitise` but returns the hospital identifier instead:
-
-``` r
-hospital_name_to_hospital_id(c('Matosinhos', 'Algarve'))
-#> [1] "h0012" "h0052"
-```
-
-This can be useful if you need to map hospital names to some other
-variables in `hospitals`, as the `hospital_id` can be used as key in a
-join operation. For example, to get the legal status of the Hospital of
-Guarda and Hospital São José in Fafe you can do:
+`get_hospital_attribute()` is a thin wrapper function allowing you to
+easily retrieve hospital attributes from the dataset `hospitals`. You
+specify the hospitals by indicating what type of key you are providing:
+`"hospital_id"`, `"hospital_acronym"`, `"hospital_short_name"` or
+`"hospital_full_name"`. And specify the column variable in `hospitals`
+with the `value` argument (default is `"hospital_short_name"`).
 
 ``` r
-hospital_name_to_hospital_id(c('Guarda', 'São José')) %>%
-  tibble::tibble(hospital_id = .) %>%
-  dplyr::left_join(hospitals, by = 'hospital_id') %>%
-  dplyr::select(c('hospital_id', 'legal_status'))
-#> # A tibble: 2 x 2
-#>   hospital_id legal_status
-#>   <chr>       <chr>       
-#> 1 h0021       EPE         
-#> 2 h0019       IPSS-CA
+# By default you get the hospital short name
+get_hospital_attribute('h0001')
+#> [1] "ULS de Saúde do Nordeste"
+
+# Same as above
+get_hospital_attribute('h0001', value = 'hospital_short_name')
+#> [1] "ULS de Saúde do Nordeste"
+
+# Or get instead the full name
+get_hospital_attribute('h0001', value = 'hospital_full_name')
+#> [1] "Unidade Local de Saúde do Nordeste, EPE"
+
+# Map the hospital short name to its full name
+get_hospital_attribute('IPO de Lisboa', key = 'hospital_short_name', value = 'hospital_full_name')
+#> [1] "Instituto Português de Oncologia de Lisboa Francisco Gentil, EPE"
 ```
