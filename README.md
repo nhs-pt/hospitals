@@ -36,64 +36,63 @@ identifiers and create new, accordingly.
 ``` r
 library(hospitals)
 
-# Here are the first 6 columns
-hospitals[1:6] %>% print(n = Inf)
-#> # A tibble: 52 x 6
-#>    hospital_id hospital_acronym hospital_legal_… hospital_integr… hospital_group
-#>    <chr>       <chr>            <chr>            <chr>            <chr>         
-#>  1 h0001       ULSNE            EPE              ULS              I             
-#>  2 h0002       ULSAM            EPE              ULS              I             
-#>  3 h0003       HB               EPE              H                II            
-#>  4 h0004       HSMM             EPE              H                I             
-#>  5 h0005       HSOG             EPE              H                I             
-#>  6 h0006       CHPVVC           EPE              CH               I             
-#>  7 h0007       CHMA             EPE              CH               I             
-#>  8 h0008       CHTMAD           EPE              CH               II            
-#>  9 h0009       CHTS             EPE              CH               I             
-#> 10 h0010       CHSJ             EPE              CH               III           
-#> 11 h0011       IPOP             EPE              H                IV-a          
-#> 12 h0012       ULSM             EPE              ULS              I             
-#> 13 h0013       CHUP             EPE              CH               III           
-#> 14 h0014       CHVNG/E          EPE              CH               II            
-#> 15 h0015       CHEDV            EPE              CH               I             
-#> 16 h0016       HML              EPE              H                IV-c          
-#> 17 h0017       HFZ              SPA              H                I             
-#> 18 h0018       HLC              IPSS-CA          H                I             
-#> 19 h0019       HSJ              IPSS-CA          H                <NA>          
-#> 20 h0020       CHBV             EPE              CH               I             
-#> 21 h0021       ULSG             EPE              ULS              I             
-#> 22 h0022       CHTV             EPE              CH               II            
-#> 23 h0023       CHUCB            EPE              CH               I             
-#> 24 h0024       CHUC             EPE              CH               III           
-#> 25 h0025       IPOC             EPE              H                IV-a          
-#> 26 h0026       HDFF             EPE              H                I             
-#> 27 h0027       ULSCB            EPE              ULS              I             
-#> 28 h0028       CHL              EPE              CH               I             
-#> 29 h0029       CMRRC-RP         SPA              H                IV-b          
-#> 30 h0030       HAJC             SPA              H                I             
-#> 31 h0031       CHMT             EPE              CH               I             
-#> 32 h0032       CHO              EPE              CH               I             
-#> 33 h0033       HDS              EPE              H                I             
-#> 34 h0034       HVFX             EPE              H                I             
-#> 35 h0035       HL               PPP              H                I             
-#> 36 h0036       CHLN             EPE              CH               III           
-#> 37 h0037       HFF              EPE              H                I             
-#> 38 h0038       IPOL             EPE              H                IV-a          
-#> 39 h0039       HC               PPP              H                I             
-#> 40 h0040       CHULC            EPE              CH               III           
-#> 41 h0041       CHLO             EPE              CH               II            
-#> 42 h0042       HGO              EPE              H                II            
-#> 43 h0043       CHBM             EPE              CH               I             
-#> 44 h0044       CHS              EPE              CH               I             
-#> 45 h0045       CHPL             SPA              CH               IV-c          
-#> 46 h0046       IOGP             SPA              H                IV            
-#> 47 h0047       ULSNA            EPE              ULS              I             
-#> 48 h0048       HESE             EPE              H                II            
-#> 49 h0049       ULSLA            EPE              ULS              I             
-#> 50 h0050       ULSBA            EPE              ULS              I             
-#> 51 h0051       HSP              IPSS-CA          H                <NA>          
-#> 52 h0052       CHUA             EPE              CH               II            
-#> # … with 1 more variable: hospital_short_name <chr>
+# Hospital identifier and short name
+hospitals[c(1, 6)] %>% print(n = Inf)
+#> # A tibble: 52 x 2
+#>    hospital_id hospital_short_name                   
+#>    <chr>       <chr>                                 
+#>  1 h0001       ULS do Nordeste                       
+#>  2 h0002       ULS do Alto Minho                     
+#>  3 h0003       H de Braga                            
+#>  4 h0004       H Santa Maria Maior                   
+#>  5 h0005       H da Senhora da Oliveira              
+#>  6 h0006       CH Póvoa de Varzim/Vila do Conde      
+#>  7 h0007       CH do Médio Ave                       
+#>  8 h0008       CH Trás-os-Montes e Alto Douro        
+#>  9 h0009       CH Tâmega e Sousa                     
+#> 10 h0010       CHU de São João                       
+#> 11 h0011       IPO do Porto                          
+#> 12 h0012       ULS de Matosinhos                     
+#> 13 h0013       CHU do Porto                          
+#> 14 h0014       CH Vila Nova de Gaia/Espinho          
+#> 15 h0015       CH de Entre o Douro e Vouga           
+#> 16 h0016       H de Magalhães Lemos                  
+#> 17 h0017       H Dr. Francisco Zagalo                
+#> 18 h0018       H Luciano de Castro, Anadia           
+#> 19 h0019       H São José, Fafe                      
+#> 20 h0020       CH do Baixo Vouga                     
+#> 21 h0021       ULS da Guarda                         
+#> 22 h0022       CH Tondela-Viseu                      
+#> 23 h0023       CHU Cova da Beira                     
+#> 24 h0024       CHU de Coimbra                        
+#> 25 h0025       IPO de Coimbra                        
+#> 26 h0026       HD da Figueira da Foz                 
+#> 27 h0027       ULS de Castelo Branco                 
+#> 28 h0028       CH de Leiria                          
+#> 29 h0029       CM de Reabilitação da RC, Rovisco Pais
+#> 30 h0030       H de Cantanhede                       
+#> 31 h0031       CH Médio Tejo                         
+#> 32 h0032       CH do Oeste                           
+#> 33 h0033       HD de Santarém                        
+#> 34 h0034       H de Vila Franca de Xira              
+#> 35 h0035       H de Loures                           
+#> 36 h0036       CHU Lisboa Norte                      
+#> 37 h0037       H Prof Doutor Fernando Fonseca        
+#> 38 h0038       IPO de Lisboa                         
+#> 39 h0039       H de Cascais                          
+#> 40 h0040       CHU de Lisboa Central                 
+#> 41 h0041       CH de Lisboa Ocidental                
+#> 42 h0042       H Garcia de Orta                      
+#> 43 h0043       CH Barreiro/Montijo                   
+#> 44 h0044       CH de Setúbal                         
+#> 45 h0045       CH Psiquiátrico de Lisboa             
+#> 46 h0046       I de Oftalmologia Dr. Gama Pinto      
+#> 47 h0047       ULS do Norte Alentejano               
+#> 48 h0048       H Espírito Santo de Évora             
+#> 49 h0049       ULS do Litoral Alentejano             
+#> 50 h0050       ULS do Baixo Alentejo                 
+#> 51 h0051       H de São Paulo, Serpa                 
+#> 52 h0052       CHU do Algarve
 ```
 
 ## Helper functions
@@ -171,11 +170,11 @@ with the `value` argument (default is `"hospital_short_name"`).
 ``` r
 # By default you get the hospital short name
 get_hospital_attribute('h0001')
-#> [1] "ULS de Saúde do Nordeste"
+#> [1] "ULS do Nordeste"
 
 # Same as above
 get_hospital_attribute('h0001', value = 'hospital_short_name')
-#> [1] "ULS de Saúde do Nordeste"
+#> [1] "ULS do Nordeste"
 
 # Or get instead the full name
 get_hospital_attribute('h0001', value = 'hospital_full_name')

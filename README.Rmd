@@ -46,8 +46,8 @@ another one, we will deprecate old identifiers and create new, accordingly.
 ```{r dataset}
 library(hospitals)
 
-# Here are the first 6 columns
-hospitals[1:6] %>% print(n = Inf)
+# Hospital identifier and short name
+hospitals[c(1, 6)] %>% print(n = Inf)
 ```
 
 ## Helper functions
