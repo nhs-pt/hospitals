@@ -38,17 +38,39 @@ remotes::install_github("nhs-pt/hospitals")
 
 ## The `hospitals` dataset
 
-The `hospital_id` variable is a surrogate identifier created by us that ought to
-help researchers refer to hospitals in an unambiguous way. The idea is for these
-identifiers to never change. So if an hospital disappears, or is merged with
-another one, we will deprecate old identifiers and create new, accordingly.
+### The Portuguese NHS hospitals
+
+Here are the `r nrow(hospitals)` hospitals currently included in the Portuguese National Health Service:
 
 ```{r dataset}
 library(hospitals)
 
-# Hospital identifier and short name
-hospitals[c(1, 6)] %>% print(n = Inf)
+# Hospital identifier and name
+hospitals[c(1, 7)] %>% print(n = Inf)
 ```
+
+### Variables
+
+The `hospitals` dataset contains the following variables:
+
+| Variable       | Description |
+|:------------------|:-------------|
+| `hospital_id`     | A surrogate identifier created by us that ought to help researchers refer to hospitals in an unambiguous way. The idea is for these identifiers to never change. So if an hospital disappears, or is merged with another one, we will deprecate old identifiers and create new, accordingly. |
+| `hospital_acronym`        | The acronym or initialism of the hospital name.         |
+| `hospital_legal_status`      | Either an administrative public sector (`'SPA'`) entity, a corporate public entity (`'EPE'`) or a public-private partnership (`'PPP'`) entity.  |
+| `hospital_integration`         | The integration level of the hospital institution: a single hospital unit (`'H'`); Centro Hospitalar (`'CH'`), comprising two or more individual Hospital units (a case of horizontal integration); and Unidade Local de Saúde (`'ULS'`), comprising both Hospital entities and primary care health centres (a case of vertical integration).         |
+| `hospital_group`         | One of the groups defined by [Ordinance 82/2014](https://data.dre.pt/eli/port/82/2014/04/10/p/dre/pt/html): `'I'`, `'II'`, `'III'`, `'IV-a'`, `'IV-b'` or `'IV-c'`. This classification is based on the hospital catchment area and the scope of medical specialities provided. Broadly speaking, group I includes local hospitals, group II corresponds to regional hospitals, and group III to central hospitals. Group IV corresponds to specialised hospitals: IV-a, oncology institutes; IV-b, physical medicine and rehabilitation hospitals; and IV-c, psychiatry and mental health hospitals. |
+| `hospital_short_name`         | An abbreviated version of the hospital name.         |
+| `hospital_full_name`         | The name of the hospital.         |
+| `hospital_region_full_name`         | The name of the Portuguese health region.         |
+| `hospital_region_short_name`         | A shortened version of `hospital_region_full_name.`         |
+| `hospital_vatin`         | VAT identification number (VATIN). In Portuguese, *Número de Identificação de Pessoa Colectiva* (NIPC).         |
+| `hospital_latitude`         | Latitude of the location of the hospital entity expressed in decimal degrees.         |
+| `hospital_longitude`         | Longitude of the location of the hospital entity expressed in decimal degrees.         |
+| `hospital_region_colour`         | Colour associated with the region. These colours are assigned by this package and are provided as a convenience colour palette for plotting in R.         |
+| `hospital_bh_group`         | One of the groups defined by the project Benchmarking of Hospitals. Source: [BH | Grupos e Instituições](https://benchmarking-acss.min-saude.pt/BH_Enquadramento/GrupoInstituicoes).         |
+| `hospital_bh_group_colour`         | Colour associated with the `hospital_bh_group`. These colours are assigned by this package and are provided as a convenience colour palette for plotting in R.         |
+| `hospital_regex`         | A regular expression that can be used to identify hospitals from their names, even when the names are not exactly as in `hospital_full_name`. This is used by the function `normalise()`.        |
 
 ## Helper functions
 
@@ -106,11 +128,15 @@ normalise('Matosinhos', return = 'hospital_id')
 ### `get_hospital_attribute()`
 
 `get_hospital_attribute()` is a thin wrapper function allowing you to easily
-retrieve hospital attributes from the dataset `hospitals`. You specify the
-hospitals by indicating what type of key you are providing: `"hospital_id"`,
-`"hospital_acronym"`, `"hospital_short_name"` or `"hospital_full_name"`. And
-specify the column variable in `hospitals` with the `value` argument (default is
-`"hospital_short_name"`).
+retrieve hospital attributes from the dataset `hospitals`.
+
+You specify the hospitals by indicating what type of key you are providing:
+`"hospital_id"`, `"hospital_acronym"`, `"hospital_short_name"` or
+`"hospital_full_name"`. Contrarily to the matching performed by `normalise()`,
+`get_hospital_attribute()` matches exactly the key provided.
+
+And specify the column variable in `hospitals` with the `value` argument
+(default is `"hospital_short_name"`).
 
 ```{r}
 # By default you get the hospital short name
