@@ -1,6 +1,6 @@
 Package: hospitals
 Type: Package
-Title: Portuguese NHS hospitals
+Title: Portuguese NHS Hospitals
 Version: 0.1.0
 Authors@R: c(
     person(given = "Ramiro", family = "Magno", email = "ramiro.magno@gmail.com",

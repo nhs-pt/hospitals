@@ -93,9 +93,9 @@
 #'   \url{https://www.sns.gov.pt/institucional/entidades-de-saude/} as the
 #'   hospitals were grouped according to its legal status. In the case of the partnerships with IPSS, the information on the precise type of contract was obtained from inspection of the contracts themselves. In all cases they are Cooperative Agreements (IPSS-CA):
 #'   \describe{
-#'   \item{Hospital Luciano de Castro, Anadia}{\href{https://github.com/nhs-pt/hospitals/data-raw/source/Acordo_Cooperacao_Hospital_Jose_Luciano_Castro_-Anadia1.pdf}{data-raw/source/Acordo_Cooperacao_Hospital_Jose_Luciano_Castro_-Anadia1.pdf}}
-#'   \item{Hospital São José, Fafe}{\href{https://github.com/nhs-pt/hospitals/data-raw/source/Acordo_Coop_Hosp_Sao_Jose_Fafe.pdf}{data-raw/source/Acordo_Coop_Hosp_Sao_Jose_Fafe.pdf}}
-#'   \item{Hospital de São Paulo, Serpa}{\href{https://github.com/nhs-pt/hospitals/data-raw/source/Acordo_Cooperacao_-Hospital_Sao_Paulo_Serpa.pdf}{data-raw/source/Acordo_Cooperacao_-Hospital_Sao_Paulo_Serpa.pdf}}
+#'   \item{Hospital Luciano de Castro, Anadia}{\href{https://github.com/nhs-pt/hospitals/blob/master/data-raw/source/Acordo_Cooperacao_Hospital_Jose_Luciano_Castro_-Anadia1.pdf}{data-raw/source/Acordo_Cooperacao_Hospital_Jose_Luciano_Castro_-Anadia1.pdf}}
+#'   \item{Hospital São José, Fafe}{\href{https://github.com/nhs-pt/hospitals/blob/master/data-raw/source/Acordo_Coop_Hosp_Sao_Jose_Fafe.pdf}{data-raw/source/Acordo_Coop_Hosp_Sao_Jose_Fafe.pdf}}
+#'   \item{Hospital de São Paulo, Serpa}{\href{https://github.com/nhs-pt/hospitals/blob/master/data-raw/source/Acordo_Cooperacao_-Hospital_Sao_Paulo_Serpa.pdf}{data-raw/source/Acordo_Cooperacao_-Hospital_Sao_Paulo_Serpa.pdf}}
 #'   }
 #' }
 #' \item{\code{hospital_integration}}{The classification in Hospital unit (H), Hospital
@@ -125,13 +125,13 @@
 #' Francisco Zagalo, Ovar} was not assigned to any group in the Ordinance
 #' 82/2014. It was included in group I however in a work by Luís Pereira, which we followed, see
 #' Table 15 in the Appendix 1, page 71 of
-#' \href{https://github.com/nhs-pt/hospitals/data-raw/source/Pereira.Unpublished.2019.pdf}{data-raw/source/Pereira.Unpublished.2019.pdf}.}
+#' \href{https://github.com/nhs-pt/hospitals/blob/master/data-raw/source/Pereira.Unpublished.2019.pdf}{data-raw/source/Pereira.Unpublished.2019.pdf}.}
 #'
 #' \item{Hospital Luciano de Castro, Anadia}{The hospital \emph{Hospital Luciano
 #' de Castro, Anadia} was not assigned to any group in the Ordinance 82/2014. It
 #' was included in group I however in a work by Luís Pereira, which we followed,
 #' see Table 15 in the Appendix 1, page 71 of
-#' \href{https://github.com/nhs-pt/hospitals/data-raw/source/Pereira.Unpublished.2019.pdf}{data-raw/source/Pereira.Unpublished.2019.pdf}.}
+#' \href{https://github.com/nhs-pt/hospitals/blob/master/data-raw/source/Pereira.Unpublished.2019.pdf}{data-raw/source/Pereira.Unpublished.2019.pdf}.}
 #' }
 #' }
 #'
@@ -144,7 +144,7 @@
 #'
 #' \item{\code{hospital_vatin}}{From the search engine \url{https://codigopostal.ciberforma.pt/}
 #' and from
-#' \href{https://github.com/nhs-pt/hospitals/data-raw/source/Infarmed_lista_hospitais.pdf}{data-raw/source/Infarmed_lista_hospitais.pdf}.}
+#' \href{https://github.com/nhs-pt/hospitals/blob/master/data-raw/source/Infarmed_lista_hospitais.pdf}{data-raw/source/Infarmed_lista_hospitais.pdf}.}
 #'
 #' \item{\code{hospital_latitude} and \code{hospital_longitude}}{By searching each hospital in Google Maps and retrieving its coordinates.}
 #'
@@ -156,8 +156,8 @@
 #' \item{ACSS Hospitals' Benchmarking website}{\href{https://benchmarking-acss.min-saude.pt/BH_Enquadramento/GrupoInstituicoes}{ACSS BH | Grupos
 #'   e Instituições}}
 #' \item{\emph{Relatório de Benchmarking | hospitais EPE e
-#' PPP}}{Page 7 of \href{https://github.com/nhs-pt/hospitals/data-raw/source/Lourenco.TechReport.2013.pdf}{data-raw/source/Lourenco.TechReport.2013.pdf}}
-#' \item{\emph{Termos de Referência para contratualização de cuidados desaúde no SNS para 2021}}{Page 25 of \href{https://github.com/nhs-pt/hospitals/data-raw/source/ACSS.TechReport.2020.pdf}{data-raw/source/ACSS.TechReport.2020.pdf}}
+#' PPP}}{Page 7 of \href{https://github.com/nhs-pt/hospitals/blob/master/data-raw/source/Lourenco.TechReport.2013.pdf}{data-raw/source/Lourenco.TechReport.2013.pdf}}
+#' \item{\emph{Termos de Referência para contratualização de cuidados desaúde no SNS para 2021}}{Page 25 of \href{https://github.com/nhs-pt/hospitals/blob/master/data-raw/source/ACSS.TechReport.2020.pdf}{data-raw/source/ACSS.TechReport.2020.pdf}}
 #' }
 #' }
 #'

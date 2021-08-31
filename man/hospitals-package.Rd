@@ -4,7 +4,7 @@
 \name{hospitals-package}
 \alias{hospitals-package}
 \alias{_PACKAGE}
-\title{hospitals: Portuguese NHS hospitals}
+\title{hospitals: Portuguese NHS Hospitals}
 \description{
 A dataset of the Portuguese NHS hospitals.
 }
