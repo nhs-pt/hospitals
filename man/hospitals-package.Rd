@@ -4,9 +4,9 @@
 \name{hospitals-package}
 \alias{hospitals-package}
 \alias{_PACKAGE}
-\title{hospitals: Portuguese NHS Hospitals}
+\title{hospitals: Portuguese 'NHS' Hospitals}
 \description{
-A dataset of the Portuguese NHS hospitals.
+A dataset of the Portuguese 'NHS' hospitals.
 }
 \author{
 \strong{Maintainer}: Ramiro Magno \email{ramiro.magno@gmail.com} (\href{https://orcid.org/0000-0001-5226-3441}{ORCID})
