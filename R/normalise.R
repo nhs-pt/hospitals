@@ -88,7 +88,8 @@ normalise <-
   pattern <- stringr::regex(whole(hospitals$hospital_regex), ignore_case = TRUE)
   replacement <- hospitals[[return]]
 
-  levels(hn_fac) <- purrr::map_chr(levels(hn_fac), recode, pattern = pattern, replacement = replacement)
+  # levels(hn_fac) <- purrr::map_chr(levels(hn_fac), recode, pattern = pattern, replacement = replacement)
+  levels(hn_fac) <- sapply(levels(hn_fac), recode, pattern = pattern, replacement = replacement)
 
   # Convert back to character
   hn_chr <- as.character(hn_fac)
