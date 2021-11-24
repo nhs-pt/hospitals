@@ -13,7 +13,7 @@ A dataset of the Portuguese NHS hospitals.
 
 Other contributors:
 \itemize{
-  \item Faculty of Economics, University of Algarve [copyright holder, funder]
+  \item CINTESIS [copyright holder, funder]
 }
 
 }
