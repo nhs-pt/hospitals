@@ -78,7 +78,8 @@ normalise <-
            unmatched_as_na = TRUE) {
 
   # The type of value to map the name (`nm`) to.
-  return <- rlang::arg_match(return)
+  # return <- rlang::arg_match(return)
+  return <- match.arg(return)
 
   # Convert the hospital names (`nm`) to a factor. We will match and replace on
   # the levels instead of doing the same operation on the original character vector
