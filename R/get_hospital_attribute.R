@@ -39,8 +39,8 @@ get_hospital_attribute <- function(x,
       'hospital_short_name',
       'hospital_full_name')
 
-  key <- rlang::arg_match(key, values = allowed_keys)
-  value <- rlang::arg_match(value, values = colnames(hospitals))
+  key <- match.arg(key, choices = allowed_keys)
+  value <- match.arg(value, choices = colnames(hospitals))
 
   if(identical(key, value)) return(x)
 
