@@ -9,12 +9,12 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-This R data package contains one single dataset — the eponymous
+This R data package contains one single data set — the eponymous
 `hospitals` tibble — comprising the current 52 hospitals in the
 Portuguese National Health Service.
 
 For a description of each variable and data sources used to assemble
-this dataset browse the documentation with `?hospitals`.
+this data set browse the documentation with `?hospitals`.
 
 ## Installation
 
@@ -25,7 +25,7 @@ You can install the current version of hospitals with:
 remotes::install_github("nhs-pt/hospitals")
 ```
 
-## The `hospitals` dataset
+## The `hospitals` data set
 
 ### The Portuguese NHS hospitals
 
@@ -96,7 +96,7 @@ hospitals[c(1, 7)] %>% print(n = Inf)
 
 ### Variables
 
-The `hospitals` dataset contains the following variables:
+The `hospitals` data set contains the following variables:
 
 | Variable                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 |:-----------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -123,7 +123,7 @@ The `hospitals` dataset contains the following variables:
 
 The names of hospitals found in the wild can have subtle variations. The
 `normalise()` function matches hospital names found elsewhere to the
-hospitals included in the dataset `hospitals`.
+hospitals included in the data set `hospitals`.
 
 For example, with `normalise` you can convert hospital names found
 elsewhere to the names found in `hospitals$hospital_short_name`:
@@ -183,7 +183,7 @@ normalise('Matosinhos', return = 'hospital_id')
 ### `get_hospital_attribute()`
 
 `get_hospital_attribute()` is a thin wrapper function allowing you to
-easily retrieve hospital attributes from the dataset `hospitals`.
+easily retrieve hospital attributes from the data set `hospitals`.
 
 You specify the hospitals by indicating what type of key you are
 providing: `"hospital_id"`, `"hospital_acronym"`,

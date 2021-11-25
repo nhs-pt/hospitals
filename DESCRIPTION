@@ -7,7 +7,7 @@ Authors@R: c(
     role = c("aut", "cre"), comment = c(ORCID = "0000-0001-5226-3441")),
     person("CINTESIS", role = c("cph", "fnd"))
     )
-Description: A dataset of the Portuguese 'NHS' hospitals.
+Description: A data set of the Portuguese 'NHS' hospitals.
 License: CC0
 Encoding: UTF-8
 LazyData: true

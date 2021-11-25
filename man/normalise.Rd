@@ -36,7 +36,7 @@ A character vector.
 }
 \description{
 \code{normalise} tries to match provided hospital names to the Portuguese NHS
-hospitals, i.e. to those hospitals included in the dataset
+hospitals, i.e. to those hospitals included in the data set
 \code{\link[hospitals]{hospitals}}, thus allowing conversion to standard
 hospital names. By default, it returns the shortened version of the hospital
 name: column \code{hospital_short_name} in \code{\link[hospitals]{hospitals}}. Use
@@ -47,12 +47,12 @@ values.
 The method behind \code{normalise} for matching hospital names is based on an
 heuristic that uses a minimal set of keywords to identify the hospital. This
 is implemented by using regular expressions. The regular expressions are
-provided in dataset \code{\link[hospitals]{hospitals}}, column
+provided in data set \code{\link[hospitals]{hospitals}}, column
 \code{hospital_regex}. Moreover, the method is case insensitive and is pretty
 tolerant to variations in the name as long as one of the critical keywords is
 found in the name. Note however that the regular expressions have been
 designed such that matches are mutually exclusive. So the same hospital name
-will never match more than one hospital of the dataset
+will never match more than one hospital of the data set
 \code{\link[hospitals]{hospitals}}.
 
 \code{normalise} is aware of deprecated hospital names, and will map those old
