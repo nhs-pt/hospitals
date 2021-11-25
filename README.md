@@ -211,3 +211,10 @@ get_hospital_attribute('h0001', value = 'hospital_full_name')
 get_hospital_attribute('IPO de Lisboa', key = 'hospital_short_name', value = 'hospital_full_name')
 #> [1] "Instituto Português de Oncologia de Lisboa Francisco Gentil, EPE"
 ```
+
+## Code of Conduct
+
+Please note that the hospitals project is released with a [Contributor
+Code of
+Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
