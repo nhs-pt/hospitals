@@ -8,6 +8,14 @@
 \description{
 A data set of the Portuguese 'NHS' hospitals.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/nhs-pt/hospitals}
+  \item Report bugs at \url{https://github.com/nhs-pt/hospitals/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Ramiro Magno \email{ramiro.magno@gmail.com} (\href{https://orcid.org/0000-0001-5226-3441}{ORCID})
 
