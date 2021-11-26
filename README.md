@@ -7,8 +7,7 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/hospitals)](https://CRAN.R-project.org/package=hospitals)
-[![License:
-CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5729243.svg)](https://doi.org/10.5281/zenodo.5729243)
 <!-- badges: end -->
 
 This R data package contains one single data set — the eponymous
@@ -35,6 +34,29 @@ options(repos = c(
     CRAN = 'https://cloud.r-project.org'))
     
 install.packages('hospitals')
+```
+
+## Citing this work
+
+To generate a citation for this publication from within R:
+
+``` r
+citation('hospitals')
+#> 
+#> To cite hospitals in publications use:
+#> 
+#>   Ramiro Magno. (2021).  An R data package of the Portuguese NHS
+#>   hospitals (v0.1.0). Zenodo. https://doi.org/10.5281/zenodo.5729243.
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {{An R data package of the Portuguese NHS hospitals}},
+#>     author = {Ramiro Magno},
+#>     note = {R package version 0.1.0},
+#>     year = {2021},
+#>     url = {https://doi.org/10.5281/zenodo.5729243},
+#>   }
 ```
 
 ## The `hospitals` data set

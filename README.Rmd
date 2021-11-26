@@ -18,7 +18,7 @@ library(hospitals)
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/hospitals)](https://CRAN.R-project.org/package=hospitals)
-[![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5729243.svg)](https://doi.org/10.5281/zenodo.5729243)
 <!-- badges: end -->
 
 This R data package contains one single data set --- the eponymous `hospitals`
@@ -45,6 +45,14 @@ options(repos = c(
     CRAN = 'https://cloud.r-project.org'))
     
 install.packages('hospitals')
+```
+
+## Citing this work
+
+To generate a citation for this publication from within R:
+
+```{r}
+citation('hospitals')
 ```
 
 ## The `hospitals` data set
